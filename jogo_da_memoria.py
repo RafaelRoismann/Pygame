@@ -34,7 +34,8 @@ while game == True:
 
     # criando botões
 
-    pygame.draw.polygon(tela, (0, 0, 0), vertices)
+    retangulo = pygame.Rect(0, 0, largura, altura)
+    pygame.draw.rect(tela, (0, 0, 0), retangulo)
 
 
     pygame.display.update()
