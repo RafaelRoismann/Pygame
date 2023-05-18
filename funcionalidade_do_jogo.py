@@ -192,6 +192,7 @@ pygame.display.update()
 # Começar o loop do jogo 
 
 # Escolher uma carta
+carta_escolida = "carta_18"
 
     # Mudo essa carta para ficar virada para frente até a segunda ser escolida
 
