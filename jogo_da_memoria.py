@@ -11,42 +11,33 @@ pygame.display.set_caption('Jogo da Memória')
 
 game = True
 
-imagem_carta = pygame.image.load('imagens/star wars/han solo.png').convert_alpha()
+font = pygame.font.SysFont(None, 70)
+font2 = pygame.font.SysFont(None, 45)
+text1 = font.render('JOGO DA MEMÓRIA', True, (87, 197, 235))
+text2 = font2.render('ESCOLHA UM TEMA', True, (0, 0, 0))
+
 imagem_tela_incial = pygame.image.load('memória.png').convert()
 imagem_tela_incial = pygame.transform.scale(imagem_tela_incial, (1280, 800))
-imagem_carta = pygame.transform.scale(imagem_carta, (50, 100))
 
-#carta1 = Carta(imagem_carta, 100, 100)
+vertices = [(250, 0), (250, 200), (0, 400), (0, 200)]
 while game == True:
 
     tela.fill((0, 0, 0))
     tela.blit(imagem_tela_incial, (0, 0))
     for event in pygame.event.get():
-        
+    
         if event.type == pygame.QUIT:
             game = False
 
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            mouseXcor = event.pos[0]
-            mouseYcor = event.pos[1]
-
-            if 340 < mouseXcor < 940 and 350 < mouseYcor < 450:
-                print('botaão 1')
-
-        
-    ##tela.blit(carta1.image, carta1.rect)
-    #tela.blit(text1, (420, 20))
-    #tela.blit(text2, (500, 90))
+    tela.blit(text1, (420, 20))
+    tela.blit(text2, (500, 90))
 
     # criando botões
 
-    pygame.draw.polygon(tela, (0, 0, 0), [(340, 350), (340, 450), (940, 450), (940, 350)])
-    pygame.draw.polygon(tela, (0, 0, 0), [(340, 200), (340, 300), (940, 300), (940, 200)])
-    pygame.draw.polygon(tela, (0, 0, 0), [(340, 500), (340, 600), (940, 600), (940, 500)])
+    retangulo = pygame.Rect(0, 0, largura, altura)
+    pygame.draw.rect(tela, (0, 0, 0), retangulo)
 
-    # criando textos dos botões
 
-        
     pygame.display.update()
 # criando tela inicial
 
@@ -172,12 +163,13 @@ harry_potter["carta_34"] = ["b", "foto_frente", "foto_trás", [0, 0]]
 harry_potter["carta_35"] = ["b", "foto_frente", "foto_trás", [0, 0]]
 harry_potter["carta_36"] = ["b", "foto_frente", "foto_trás", [0, 0]]
 
+
+
+
 # Estrutura do jogo 
 
 # Definir o dicionário que será utilizada a partir da resposta do jogador
 dic_jogo = harry_potter #Colocar o dicionário que foi escolido pelo usuario 
-
-
 
 # Sorteia uma posição para cada foto
 lista_posicoes = [[0, 0],[1, 1],[2, 2],[3, 3],[4, 4],[5, 5],[6, 6],[7, 7],[8, 8],[9, 9],[10, 10],
@@ -197,13 +189,14 @@ for carta in dic_jogo:
 
 #print(dic_jogo)
 
+
 # Nesse ponto o dicionário já está pronto para começar a ser utilizado no jogo 
 
-# Inicio da estrutura do jogo
 
-# Imprimir no display cada imagem 
-# Usar a termologia "b" caso a carta esteja virada para baixo e "c" caso a carta esteja virada para cima 
 
+
+# DEFININDO AS CONDIÇÕES INICIAIS DO JOGO, Usar a termologia "b" caso a carta esteja virada para baixo e "c" caso a carta esteja virada para cima
+#////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 # Imprimir todas as cartas virada para cima 
 for carta in dic_jogo:
@@ -235,15 +228,13 @@ pygame.display.update()
 
 
 
-
-
-jogo = True
-
 # Começar o loop do jogo 
+jogo = True
 while jogo:
 
-#           ESCOLHA DA PRIMEIRA CARTA 
+# ESCOLHA DA PRIMEIRA CARTA 
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
     # Escolher uma carta e muda o status para virado para cima 
     carta_escolida_1 = "carta_18"
     lista_carta_1 =  dic_jogo[carta_escolida_1] 
@@ -265,9 +256,11 @@ while jogo:
     # Atualiza a imagem das cartas virada para cima
     pygame.display.update()
 
-#           ESCOLHA DA SEGUNDA CARTA 
+
+
+# ESCOLHA DA SEGUNDA CARTA 
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    # Escolho a segunda carta
+    
     # Escolher a segunda carta e muda o status para virado para cima 
     carta_escolida_2 = "carta_18"
     lista_carta_2 =  dic_jogo[carta_escolida_2] 
@@ -291,8 +284,21 @@ while jogo:
     
 
     # Verifico se as cartas são iguais 
-        # Se forem mudo o estádo para viradas para cima 
-        # Se não forem viro as duas para baixo 
+    png_imagem_escolhida_1 = lista_carta_1[1]   
+    png_imagem_escolhida_2 = lista_carta_2[1]
+    
+    if png_imagem_escolhida_1 != png_imagem_escolhida_2:
+        # Espero 3 segundos 
+        # Desviro as cartas 
+
 
     # Verifico que todas estão viradas para cima 
-
+    v = "t"
+    for carta in dic_jogo:
+        list_carta = dic_jogo[carta]
+        posicao_carta = list_carta[0]
+        if posicao_carta == "b":
+            v = "f" 
+    if v == "t":
+        jogo == False 
+        # Acabou o jogo 
