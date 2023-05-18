@@ -14,17 +14,20 @@ game = True
 botao_starwars = pygame.image.load('imagens/botao/botao_starwars.png').convert_alpha()
 botao_harrypotter = pygame.image.load('imagens/botao/botao_potter.png').convert_alpha()
 botao_pokemon = pygame.image.load('imagens/botao/botao_pokemon.png').convert_alpha()
-imagem_tela_incial = pygame.image.load('memória.png').convert()
+imagem_tela_incial = pygame.image.load('imagens/bg inicio.jpg').convert()
+titulo = pygame.image.load('imagens/titulo.png').convert_alpha()
 
 imagem_tela_incial = pygame.transform.scale(imagem_tela_incial, (1280, 800))
-botao_pokemon = pygame.transform.scale(botao_pokemon, (700, 100))
-botao_harrypotter = pygame.transform.scale(botao_harrypotter, (700, 100))
+titulo = pygame.transform.scale(titulo, (960, 540))
+botao_pokemon = pygame.transform.scale(botao_pokemon, (1080, 400))
+botao_harrypotter = pygame.transform.scale(botao_harrypotter, (1080, 400))
 botao_starwars = pygame.transform.scale(botao_starwars, (1080, 400))
 
 while game == True:
 
     tela.fill((0, 0, 0))
     tela.blit(imagem_tela_incial, (0, 0))
+    tela.blit(titulo, (150, -150))
     
     for event in pygame.event.get():
         
@@ -35,23 +38,19 @@ while game == True:
             mouseXcor = event.pos[0]
             mouseYcor = event.pos[1]
 
-            if 340 < mouseXcor < 940 and 200 < mouseYcor < 300:
+            if 330 < mouseXcor < 950 and 250 < mouseYcor < 350:
                 print('botão 1')
 
-            elif 340 < mouseXcor < 940 and 350 < mouseYcor < 450:
+            elif 330 < mouseXcor < 950 and 400 < mouseYcor < 500:
                 print('botão 2')
 
-            elif 340 < mouseXcor < 940 and 500 < mouseYcor < 600:
+            elif 330 < mouseXcor < 950 and 550 < mouseYcor < 650:
                 print('botão 3')
 
     # criando botões
 
-    pygame.draw.polygon(tela, (0, 0, 0), [(340, 350), (340, 450), (940, 450), (940, 350)])
-    pygame.draw.polygon(tela, (0, 0, 0), [(340, 200), (340, 300), (940, 300), (940, 200)])
-    pygame.draw.polygon(tela, (0, 0, 0), [(340, 500), (340, 600), (940, 600), (940, 500)])
-
-    tela.blit(botao_starwars, (100, 50))
-    tela.blit(botao_harrypotter, (340, 450))
-    tela.blit(botao_pokemon, (340, 600))
+    tela.blit(botao_starwars, (100, 100))
+    tela.blit(botao_harrypotter, (100, 250))
+    tela.blit(botao_pokemon, (100, 400))
         
     pygame.display.update()

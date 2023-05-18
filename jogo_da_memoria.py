@@ -11,36 +11,17 @@ pygame.display.set_caption('Jogo da Memória')
 
 game = True
 
-font = pygame.font.SysFont(None, 70)
-font2 = pygame.font.SysFont(None, 45)
-text1 = font.render('JOGO DA MEMÓRIA', True, (87, 197, 235))
-text2 = font2.render('ESCOLHA UM TEMA', True, (0, 0, 0))
+botao_starwars = pygame.image.load('imagens/botao/botao_starwars.png').convert_alpha()
+botao_harrypotter = pygame.image.load('imagens/botao/botao_potter.png').convert_alpha()
+botao_pokemon = pygame.image.load('imagens/botao/botao_pokemon.png').convert_alpha()
+imagem_tela_incial = pygame.image.load('imagens/bg inicio.jpg').convert()
+titulo = pygame.image.load('imagens/titulo.png').convert_alpha()
 
-imagem_tela_incial = pygame.image.load('memória.png').convert()
 imagem_tela_incial = pygame.transform.scale(imagem_tela_incial, (1280, 800))
-
-vertices = [(250, 0), (250, 200), (0, 400), (0, 200)]
-while game == True:
-
-    tela.fill((0, 0, 0))
-    tela.blit(imagem_tela_incial, (0, 0))
-    for event in pygame.event.get():
-    
-        if event.type == pygame.QUIT:
-            game = False
-
-    tela.blit(text1, (420, 20))
-    tela.blit(text2, (500, 90))
-
-    # criando botões
-
-    retangulo = pygame.Rect(0, 0, largura, altura)
-    pygame.draw.rect(tela, (0, 0, 0), retangulo)
-
-
-    pygame.display.update()
-# criando tela inicial
-
+titulo = pygame.transform.scale(titulo, (960, 540))
+botao_pokemon = pygame.transform.scale(botao_pokemon, (1080, 400))
+botao_harrypotter = pygame.transform.scale(botao_harrypotter, (1080, 400))
+botao_starwars = pygame.transform.scale(botao_starwars, (1080, 400))
 
 # Criar um dicionário para cada grupo de personagens 
 
@@ -169,7 +150,7 @@ harry_potter["carta_36"] = ["b", "foto_frente", "foto_trás", [0, 0]]
 # Estrutura do jogo 
 
 # Definir o dicionário que será utilizada a partir da resposta do jogador
-dic_jogo = harry_potter #Colocar o dicionário que foi escolido pelo usuario 
+ #Colocar o dicionário que foi escolido pelo usuario 
 
 # Sorteia uma posição para cada foto
 lista_posicoes = [[0, 0],[1, 1],[2, 2],[3, 3],[4, 4],[5, 5],[6, 6],[7, 7],[8, 8],[9, 9],[10, 10],
@@ -212,6 +193,7 @@ for carta in dic_jogo:
 pygame.display.update()
 
 # Esperar 5 segundo 
+pygame.time.wait(5000)
 
 # Imprimir todas as cartas viradas para baixo 
 for carta in dic_jogo:
@@ -230,7 +212,38 @@ pygame.display.update()
 
 # Começar o loop do jogo 
 jogo = True
+
 while jogo:
+
+    tela.fill((0, 0, 0))
+    tela.blit(imagem_tela_incial, (0, 0))
+    tela.blit(titulo, (150, -150))
+    
+    for event in pygame.event.get():
+        
+        if event.type == pygame.QUIT:
+            game = False
+
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            mouseXcor = event.pos[0]
+            mouseYcor = event.pos[1]
+
+            if 330 < mouseXcor < 950 and 250 < mouseYcor < 350:
+                dic_jogo = star_wars
+
+            elif 330 < mouseXcor < 950 and 400 < mouseYcor < 500:
+                dic_jogo = harry_potter
+
+            elif 330 < mouseXcor < 950 and 550 < mouseYcor < 650:
+                dic_jogo = pokemon
+
+    # criando botões
+
+    tela.blit(botao_starwars, (100, 100))
+    tela.blit(botao_harrypotter, (100, 250))
+    tela.blit(botao_pokemon, (100, 400))
+        
+    pygame.display.update()
 
 # ESCOLHA DA PRIMEIRA CARTA 
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -288,6 +301,7 @@ while jogo:
     png_imagem_escolhida_2 = lista_carta_2[1]
     
     if png_imagem_escolhida_1 != png_imagem_escolhida_2:
+        pygame.time.wait(3000)
         # Espero 3 segundos 
         # Desviro as cartas 
 
