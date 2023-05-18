@@ -1,6 +1,3 @@
-# criando tela inicial
-
-
 # Criar um dicionário para cada grupo de personagens 
 
 # Definindo o diconário de pokemon 
@@ -197,7 +194,7 @@ while jogo:
     # Escolher uma carta e muda o status para virado para cima 
     carta_escolida_1 = "carta_18"
     lista_carta_1 =  dic_jogo[carta_escolida_1] 
-    lista_carta_1[0] = "c"
+    lista_carta_1[0] = "c" # Ver se de fato está atualiuzando o dicionário
 
     # Imprimir as cartas da forma atualizada delas  
     for carta in dic_jogo:
@@ -223,7 +220,7 @@ while jogo:
     # Escolher a segunda carta e muda o status para virado para cima 
     carta_escolida_2 = "carta_18"
     lista_carta_2 =  dic_jogo[carta_escolida_2] 
-    lista_carta_1[0] = "c"
+    lista_carta_2[0] = "c"
 
     # Imprimir as cartas da forma atualizada delas  
     for carta in dic_jogo:
@@ -249,6 +246,24 @@ while jogo:
     if png_imagem_escolhida_1 != png_imagem_escolhida_2:
         # Espero 3 segundos 
         # Desviro as cartas 
+        lista_carta_1[0] = "b" # Ver se de fato está atualiuzando o dicionário
+        lista_carta_2[0] = "b" # Ver se de fato está atualiuzando o dicionário
+        # Imprimir as cartas da forma atualizada delas  
+        for carta in dic_jogo:
+            lista_carta = dic_jogo[carta]
+            lado      = lista_carta[0]
+            if lado == "b":
+                png_carta = lista_carta[2]
+            if lado == "c":
+                png_carta = lista_carta[1]
+            posicao_x = lista_carta[3][0]
+            posicao_y = lista_carta[3][1]
+            # Salvando a carta na tela 
+            tela.blit(png_carta, (posicao_x, posicao_y))
+
+        # Atualiza a imagem das cartas virada para cima
+        pygame.display.update()
+
 
 
     # Verifico que todas estão viradas para cima 
