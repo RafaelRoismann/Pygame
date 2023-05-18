@@ -1,6 +1,4 @@
-# IMportando bibliotecas
-import random 
-
+# criando tela inicial
 
 
 # Criar um dicionário para cada grupo de personagens 
@@ -124,6 +122,9 @@ harry_potter["carta_34"] = ["b", "foto_frente", "foto_trás", [0, 0]]
 harry_potter["carta_35"] = ["b", "foto_frente", "foto_trás", [0, 0]]
 harry_potter["carta_36"] = ["b", "foto_frente", "foto_trás", [0, 0]]
 
+
+
+
 # Estrutura do jogo 
 
 # Definir o dicionário que será utilizada a partir da resposta do jogador
@@ -147,13 +148,14 @@ for carta in dic_jogo:
 
 #print(dic_jogo)
 
+
 # Nesse ponto o dicionário já está pronto para começar a ser utilizado no jogo 
 
-# Inicio da estrutura do jogo
 
-# Imprimir no display cada imagem 
-# Usar a termologia "b" caso a carta esteja virada para baixo e "c" caso a carta esteja virada para cima 
 
+
+# DEFININDO AS CONDIÇÕES INICIAIS DO JOGO, Usar a termologia "b" caso a carta esteja virada para baixo e "c" caso a carta esteja virada para cima
+#////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 # Imprimir todas as cartas virada para cima 
 for carta in dic_jogo:
@@ -185,24 +187,77 @@ pygame.display.update()
 
 
 
-
-
-
-
 # Começar o loop do jogo 
+jogo = True
+while jogo:
 
-# Escolher uma carta
-carta_escolida = "carta_18"
+# ESCOLHA DA PRIMEIRA CARTA 
+#////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    # Escolher uma carta e muda o status para virado para cima 
+    carta_escolida_1 = "carta_18"
+    lista_carta_1 =  dic_jogo[carta_escolida_1] 
+    lista_carta_1[0] = "c"
 
-    # Mudo essa carta para ficar virada para frente até a segunda ser escolida
+    # Imprimir as cartas da forma atualizada delas  
+    for carta in dic_jogo:
+        lista_carta = dic_jogo[carta]
+        lado      = lista_carta[0]
+        if lado == "b":
+            png_carta = lista_carta[2]
+        if lado == "c":
+            png_carta = lista_carta[1]
+        posicao_x = lista_carta[3][0]
+        posicao_y = lista_carta[3][1]
+        # Salvando a carta na tela 
+        tela.blit(png_carta, (posicao_x, posicao_y))
 
-# Escolho a segunda carta
+    # Atualiza a imagem das cartas virada para cima
+    pygame.display.update()
 
-    # Mudo essa carta para ficar virada para frente por 5 segudos
 
-# Verifico se as cartas são iguais 
-    # Se forem mudo o estádo para viradas para cima 
-    # Se não forem viro as duas para baixo 
 
-# Verifico que todas estão viradas para cima 
+# ESCOLHA DA SEGUNDA CARTA 
+#////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    # Escolher a segunda carta e muda o status para virado para cima 
+    carta_escolida_2 = "carta_18"
+    lista_carta_2 =  dic_jogo[carta_escolida_2] 
+    lista_carta_1[0] = "c"
 
+    # Imprimir as cartas da forma atualizada delas  
+    for carta in dic_jogo:
+        lista_carta = dic_jogo[carta]
+        lado      = lista_carta[0]
+        if lado == "b":
+            png_carta = lista_carta[2]
+        if lado == "c":
+            png_carta = lista_carta[1]
+        posicao_x = lista_carta[3][0]
+        posicao_y = lista_carta[3][1]
+        # Salvando a carta na tela 
+        tela.blit(png_carta, (posicao_x, posicao_y))
+
+    # Atualiza a imagem das cartas virada para cima
+    pygame.display.update()
+    
+
+    # Verifico se as cartas são iguais 
+    png_imagem_escolhida_1 = lista_carta_1[1]   
+    png_imagem_escolhida_2 = lista_carta_2[1]
+    
+    if png_imagem_escolhida_1 != png_imagem_escolhida_2:
+        # Espero 3 segundos 
+        # Desviro as cartas 
+
+
+    # Verifico que todas estão viradas para cima 
+    v = "t"
+    for carta in dic_jogo:
+        list_carta = dic_jogo[carta]
+        posicao_carta = list_carta[0]
+        if posicao_carta == "b":
+            v = "f" 
+    if v == "t":
+        jogo == False 
+        # Acabou o jogo 
