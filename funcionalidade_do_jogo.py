@@ -1,45 +1,6 @@
-# Jogo da memória
+# IMportando bibliotecas
 import random 
-import pygame
-pygame.init()
 
-# criando a tela do jogo
-hight = 800
-width = 1280
-tela = pygame.display.set_mode((width, hight))
-pygame.display.set_caption('Jogo da Memória')
-
-game = True
-
-font = pygame.font.SysFont(None, 70)
-font2 = pygame.font.SysFont(None, 45)
-text1 = font.render('JOGO DA MEMÓRIA', True, (87, 197, 235))
-text2 = font2.render('ESCOLHA UM TEMA', True, (0, 0, 0))
-
-imagem_tela_incial = pygame.image.load('memória.png').convert()
-imagem_tela_incial = pygame.transform.scale(imagem_tela_incial, (1280, 800))
-
-vertices = [(250, 0), (250, 200), (0, 400), (0, 200)]
-while game == True:
-
-    tela.fill((0, 0, 0))
-    tela.blit(imagem_tela_incial, (0, 0))
-    for event in pygame.event.get():
-    
-        if event.type == pygame.QUIT:
-            game = False
-
-    tela.blit(text1, (420, 20))
-    tela.blit(text2, (500, 90))
-
-    # criando botões
-
-    retangulo = pygame.Rect(0, 0, largura, altura)
-    pygame.draw.rect(tela, (0, 0, 0), retangulo)
-
-
-    pygame.display.update()
-# criando tela inicial
 
 
 # Criar um dicionário para cada grupo de personagens 
