@@ -19,7 +19,7 @@ imagem_tela_incial = pygame.image.load('memória.png').convert()
 imagem_tela_incial = pygame.transform.scale(imagem_tela_incial, (1280, 800))
 botao_pokemon = pygame.transform.scale(botao_pokemon, (700, 100))
 botao_harrypotter = pygame.transform.scale(botao_harrypotter, (700, 100))
-botao_starwars = pygame.transform.scale(botao_starwars, (700, 100))
+botao_starwars = pygame.transform.scale(botao_starwars, (1080, 400))
 
 while game == True:
 
@@ -50,8 +50,8 @@ while game == True:
     pygame.draw.polygon(tela, (0, 0, 0), [(340, 200), (340, 300), (940, 300), (940, 200)])
     pygame.draw.polygon(tela, (0, 0, 0), [(340, 500), (340, 600), (940, 600), (940, 500)])
 
-    tela.blit(botao_starwars, (340, 600))
+    tela.blit(botao_starwars, (100, 50))
     tela.blit(botao_harrypotter, (340, 450))
-    tela.blit(botao_pokemon, (340, 300))
+    tela.blit(botao_pokemon, (340, 600))
         
     pygame.display.update()
