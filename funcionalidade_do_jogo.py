@@ -1,54 +1,6 @@
-# Jogo da memória
+# IMportando bibliotecas
 import random 
-import pygame
-pygame.init()
 
-# criando a tela do jogo
-hight = 800
-width = 1280
-tela = pygame.display.set_mode((width, hight))
-pygame.display.set_caption('Jogo da Memória')
-
-game = True
-
-imagem_carta = pygame.image.load('imagens/star wars/han solo.png').convert_alpha()
-imagem_tela_incial = pygame.image.load('memória.png').convert()
-imagem_tela_incial = pygame.transform.scale(imagem_tela_incial, (1280, 800))
-imagem_carta = pygame.transform.scale(imagem_carta, (50, 100))
-
-#carta1 = Carta(imagem_carta, 100, 100)
-while game == True:
-
-    tela.fill((0, 0, 0))
-    tela.blit(imagem_tela_incial, (0, 0))
-    for event in pygame.event.get():
-        
-        if event.type == pygame.QUIT:
-            game = False
-
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            mouseXcor = event.pos[0]
-            mouseYcor = event.pos[1]
-
-            if 340 < mouseXcor < 940 and 350 < mouseYcor < 450:
-                print('botaão 1')
-
-        
-    ##tela.blit(carta1.image, carta1.rect)
-    #tela.blit(text1, (420, 20))
-    #tela.blit(text2, (500, 90))
-
-    # criando botões
-
-    pygame.draw.polygon(tela, (0, 0, 0), [(340, 350), (340, 450), (940, 450), (940, 350)])
-    pygame.draw.polygon(tela, (0, 0, 0), [(340, 200), (340, 300), (940, 300), (940, 200)])
-    pygame.draw.polygon(tela, (0, 0, 0), [(340, 500), (340, 600), (940, 600), (940, 500)])
-
-    # criando textos dos botões
-
-        
-    pygame.display.update()
-# criando tela inicial
 
 
 # Criar um dicionário para cada grupo de personagens 
@@ -177,8 +129,6 @@ harry_potter["carta_36"] = ["b", "foto_frente", "foto_trás", [0, 0]]
 # Definir o dicionário que será utilizada a partir da resposta do jogador
 dic_jogo = harry_potter #Colocar o dicionário que foi escolido pelo usuario 
 
-
-
 # Sorteia uma posição para cada foto
 lista_posicoes = [[0, 0],[1, 1],[2, 2],[3, 3],[4, 4],[5, 5],[6, 6],[7, 7],[8, 8],[9, 9],[10, 10],
 [11, 11],[12, 12],[13, 13],[14, 14],[15, 15],[16, 16],[17, 17],[18, 18],[19, 19],[20, 20],[21, 21],
@@ -237,62 +187,22 @@ pygame.display.update()
 
 
 
-jogo = True
+
 
 # Começar o loop do jogo 
-while jogo:
 
-#           ESCOLHA DA PRIMEIRA CARTA 
-#////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    # Escolher uma carta e muda o status para virado para cima 
-    carta_escolida_1 = "carta_18"
-    lista_carta_1 =  dic_jogo[carta_escolida_1] 
-    lista_carta_1[0] = "c"
+# Escolher uma carta
+carta_escolida = "carta_18"
 
-    # Imprimir as cartas da forma atualizada delas  
-    for carta in dic_jogo:
-        lista_carta = dic_jogo[carta]
-        lado      = lista_carta[0]
-        if lado == "b":
-            png_carta = lista_carta[2]
-        if lado == "c":
-            png_carta = lista_carta[1]
-        posicao_x = lista_carta[3][0]
-        posicao_y = lista_carta[3][1]
-        # Salvando a carta na tela 
-        tela.blit(png_carta, (posicao_x, posicao_y))
+    # Mudo essa carta para ficar virada para frente até a segunda ser escolida
 
-    # Atualiza a imagem das cartas virada para cima
-    pygame.display.update()
+# Escolho a segunda carta
 
-#           ESCOLHA DA SEGUNDA CARTA 
-#////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    # Escolho a segunda carta
-    # Escolher a segunda carta e muda o status para virado para cima 
-    carta_escolida_2 = "carta_18"
-    lista_carta_2 =  dic_jogo[carta_escolida_2] 
-    lista_carta_1[0] = "c"
+    # Mudo essa carta para ficar virada para frente por 5 segudos
 
-    # Imprimir as cartas da forma atualizada delas  
-    for carta in dic_jogo:
-        lista_carta = dic_jogo[carta]
-        lado      = lista_carta[0]
-        if lado == "b":
-            png_carta = lista_carta[2]
-        if lado == "c":
-            png_carta = lista_carta[1]
-        posicao_x = lista_carta[3][0]
-        posicao_y = lista_carta[3][1]
-        # Salvando a carta na tela 
-        tela.blit(png_carta, (posicao_x, posicao_y))
+# Verifico se as cartas são iguais 
+    # Se forem mudo o estádo para viradas para cima 
+    # Se não forem viro as duas para baixo 
 
-    # Atualiza a imagem das cartas virada para cima
-    pygame.display.update()
-    
-
-    # Verifico se as cartas são iguais 
-        # Se forem mudo o estádo para viradas para cima 
-        # Se não forem viro as duas para baixo 
-
-    # Verifico que todas estão viradas para cima 
+# Verifico que todas estão viradas para cima 
 
