@@ -11,33 +11,42 @@ pygame.display.set_caption('Jogo da Memória')
 
 game = True
 
-font = pygame.font.SysFont(None, 70)
-font2 = pygame.font.SysFont(None, 45)
-text1 = font.render('JOGO DA MEMÓRIA', True, (87, 197, 235))
-text2 = font2.render('ESCOLHA UM TEMA', True, (0, 0, 0))
-
+imagem_carta = pygame.image.load('imagens/star wars/han solo.png').convert_alpha()
 imagem_tela_incial = pygame.image.load('memória.png').convert()
 imagem_tela_incial = pygame.transform.scale(imagem_tela_incial, (1280, 800))
+imagem_carta = pygame.transform.scale(imagem_carta, (50, 100))
 
-vertices = [(250, 0), (250, 200), (0, 400), (0, 200)]
+#carta1 = Carta(imagem_carta, 100, 100)
 while game == True:
 
     tela.fill((0, 0, 0))
     tela.blit(imagem_tela_incial, (0, 0))
     for event in pygame.event.get():
-    
+        
         if event.type == pygame.QUIT:
             game = False
 
-    tela.blit(text1, (420, 20))
-    tela.blit(text2, (500, 90))
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            mouseXcor = event.pos[0]
+            mouseYcor = event.pos[1]
+
+            if 340 < mouseXcor < 940 and 350 < mouseYcor < 450:
+                print('botaão 1')
+
+        
+    ##tela.blit(carta1.image, carta1.rect)
+    #tela.blit(text1, (420, 20))
+    #tela.blit(text2, (500, 90))
 
     # criando botões
 
-    retangulo = pygame.Rect(0, 0, largura, altura)
-    pygame.draw.rect(tela, (0, 0, 0), retangulo)
+    pygame.draw.polygon(tela, (0, 0, 0), [(340, 350), (340, 450), (940, 450), (940, 350)])
+    pygame.draw.polygon(tela, (0, 0, 0), [(340, 200), (340, 300), (940, 300), (940, 200)])
+    pygame.draw.polygon(tela, (0, 0, 0), [(340, 500), (340, 600), (940, 600), (940, 500)])
 
+    # criando textos dos botões
 
+        
     pygame.display.update()
 # criando tela inicial
 
