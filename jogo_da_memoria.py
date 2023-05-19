@@ -9,12 +9,22 @@ width = 1280
 tela = pygame.display.set_mode((width, hight))
 pygame.display.set_caption('Jogo da Memória')
 
+CARTA_WIDTH = 120
+CARTA_HEIGHT = 150
+
 game = True
 
-botao_starwars = pygame.image.load('imagens/botao/botao_starwars.png').convert_alpha()
-botao_harrypotter = pygame.image.load('imagens/botao/botao_potter.png').convert_alpha()
-botao_pokemon = pygame.image.load('imagens/botao/botao_pokemon.png').convert_alpha()
+botao_starwars = pygame.image.load('botao_starwars.png').convert_alpha()
+botao_harrypotter = pygame.image.load('botao_potter.png').convert_alpha()
+botao_pokemon = pygame.image.load('botao_pokemon.png').convert_alpha()
 imagem_tela_incial = pygame.image.load('imagens/bg inicio.jpg').convert()
+carta_capa = pygame.image.load('capa_harrypotter.png').convert()
+carta_1 = pygame.image.load('Captura de tela 2023-05-19 160445.png').convert()
+carta_2 = pygame.image.load('Captura de tela 2023-05-19 160456.png').convert()
+carta_3 = pygame.image.load('Captura de tela 2023-05-19 160518.png').convert()
+fundo_harrypotter = pygame.image.load("imagens/fundo_starwars.png").convert()
+fundo_starwars = pygame.image.load("imagens/fundo_starwars.png").convert()
+fundo_pokemon = pygame.image.load("imagens/fundo_pokemon.png").convert()
 titulo = pygame.image.load('imagens/titulo.png').convert_alpha()
 
 imagem_tela_incial = pygame.transform.scale(imagem_tela_incial, (1280, 800))
@@ -22,6 +32,10 @@ titulo = pygame.transform.scale(titulo, (960, 540))
 botao_pokemon = pygame.transform.scale(botao_pokemon, (1080, 400))
 botao_harrypotter = pygame.transform.scale(botao_harrypotter, (1080, 400))
 botao_starwars = pygame.transform.scale(botao_starwars, (1080, 400))
+carta_1 = pygame.transform.scale(carta_1, (CARTA_WIDTH, CARTA_HEIGHT)) 
+carta_2 = pygame.transform.scale(carta_2, (CARTA_WIDTH, CARTA_HEIGHT))
+carta_3 = pygame.transform.scale(carta_3, (CARTA_WIDTH, CARTA_HEIGHT))
+carta_capa = pygame.transform.scale(carta_3, (CARTA_WIDTH, CARTA_HEIGHT))
 
 
 jogo = True 
@@ -64,7 +78,7 @@ while jogo:
     if tema:
 
         # Definindo o diconário de pokemon 
-        pokemon = {}
+        '''pokemon = {}
         pokemon["carta_1"]  = ["b", "foto_frente", "foto_trás", [0, 0]]
         pokemon["carta_2"]  = ["b", "foto_frente", "foto_trás", [0, 0]]
         pokemon["carta_3"]  = ["b", "foto_frente", "foto_trás", [0, 0]]
@@ -140,62 +154,67 @@ while jogo:
         star_wars["carta_33"] = ["b", "foto_frente", "foto_trás", [0, 0]]
         star_wars["carta_34"] = ["b", "foto_frente", "foto_trás", [0, 0]]
         star_wars["carta_35"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        star_wars["carta_36"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-
+        star_wars["carta_36"] = ["b", "foto_frente", "foto_trás", [0, 0]]'''
 
         # Definindo o dicionário de Harry Potter
         harry_potter = {}
-        harry_potter["carta_1"]  = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_2"]  = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_3"]  = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_4"]  = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_5"]  = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_6"]  = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_7"]  = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_8"]  = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_9"]  = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_10"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_11"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_12"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_13"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_14"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_15"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_16"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_17"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_18"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_19"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_20"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_21"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_22"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_23"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_24"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_25"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_26"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_27"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_28"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_29"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_30"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_31"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_32"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_33"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_34"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_35"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        harry_potter["carta_36"] = ["b", "foto_frente", "foto_trás", [0, 0]]
+        harry_potter["carta_1"]  = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_2"]  = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_3"]  = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_4"]  = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_5"]  = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_6"]  = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_7"]  = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_8"]  = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_9"]  = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_10"] = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_11"] = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_12"] = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_13"] = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_14"] = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_15"] = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_16"] = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_17"] = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_18"] = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_19"] = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_20"] = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_21"] = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_22"] = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_23"] = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_24"] = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_25"] = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_26"] = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_27"] = ["b", carta_capa, carta_capa, [0, 0]]
+        harry_potter["carta_28"] = ["b", carta_capa, carta_capa, [0, 0]]
+
+
 
         # Definir qual dicionário vai ser utilizado 
         if tema_escolido == "star_wars":
             dic_jogo = star_wars
+            fundo = fundo_starwars
+            
         if tema_escolido == "harry_potter":
             dic_jogo = harry_potter
+            fundo = fundo_harrypotter
+
         if tema_escolido == "pokemon":
             dic_jogo = pokemon
+            fundo = fundo_pokemon
 
+        fundo = pygame.transform.scale(fundo, (1280, 800))
+        fundo.blit(fundo, (0, 0))
+
+        print(dic_jogo)
         # Pega as posições das cartas e embaralha 
-        lista_posicoes = [[0, 0],[1, 1],[2, 2],[3, 3],[4, 4],[5, 5],[6, 6],[7, 7],[8, 8],[9, 9],[10, 10],
-                          [11, 11],[12, 12],[13, 13],[14, 14],[15, 15],[16, 16],[17, 17],[18, 18],[19, 19],[20, 20],[21, 21],
-                          [22, 22],[23, 23],[24, 24],[25, 25],[26, 26],[27, 27],[28, 28],[29, 29],[30, 30],[31, 31],[32, 32],
-                          [33, 33],[34, 34],[35, 35],[36, 36]]
+        lista_posicoes = [[40, 20], [200, 20], [360, 20], [520, 20], [680, 20], [840, 20], [1000, 20],
+    [40, 190], [200, 190], [360, 190], [520, 190], [680, 190], [840, 190], [1000, 190],
+    [40, 360], [200, 360], [360, 360], [520, 360], [680, 360], [840, 360], [1000, 360],
+    [40, 530], [200, 530], [360, 530], [520, 530], [680, 530], [840, 530], [1000, 530]]
 
+
+
+        #lista_posicoes = [[50, 50],[250, 50],[450, 50]]
         random.shuffle(lista_posicoes)
 
         # Adicionar as posições para cada valor do dicionário
@@ -204,10 +223,16 @@ while jogo:
             lista_carta = dic_jogo[carta]
             lista_carta[3] = lista_posicoes[i]
             i += 1
-
+        
+        print(dic_jogo)
 
 # DEFININDO AS CONDIÇÕES INICIAIS DO JOGO, Usar a termologia "b" caso a carta esteja virada para baixo e "c" caso a carta esteja virada para cima
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        tela.fill((0, 0, 0))
+
+        # Esperar 5 segundo 
+        #pygame.time.wait(5000)
 
         # Imprimir todas as cartas virada para cima 
         for carta in dic_jogo:
@@ -217,13 +242,13 @@ while jogo:
             posicao_x = lista_carta[3][0]
             posicao_y = lista_carta[3][1]
             # Salvando a carta na tela 
-            tela.blit(png_carta, (posicao_x, posicao_y))
+            fundo.blit(png_carta, (posicao_x, posicao_y))
 
         # Atualiza a imagem das cartas virada para cima
         pygame.display.update()
 
         # Esperar 5 segundo 
-        pygame.time.wait(5000)
+        #pygame.time.wait(5000)
 
         # Imprimir todas as cartas viradas para baixo 
         for carta in dic_jogo:
@@ -233,7 +258,7 @@ while jogo:
             posicao_x = lista_carta[3][0]
             posicao_y = lista_carta[3][1]
             # Salvando a carta na tela 
-            tela.blit(png_carta, (posicao_x, posicao_y))
+            fundo.blit(png_carta, (posicao_x, posicao_y))
 
         # Atualiza a imagem das cartas virada para cima
         pygame.display.update()
@@ -243,13 +268,13 @@ while jogo:
         # Começar o loop do jogo 
         jogo = True
 
-        '''while jogo:
+        while jogo:
 
         # ESCOLHA DA PRIMEIRA CARTA 
         #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            
+            # tela.fill((0, 0, 0))
             # Escolher uma carta e muda o status para virado para cima 
-            carta_escolida_1 = "carta_18"
+            carta_escolida_1 = "carta_2"
             lista_carta_1 =  dic_jogo[carta_escolida_1] 
             lista_carta_1[0] = "c" # Ver se de fato está atualiuzando o dicionário
 
@@ -275,7 +300,7 @@ while jogo:
         #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             
             # Escolher a segunda carta e muda o status para virado para cima 
-            carta_escolida_2 = "carta_18"
+            carta_escolida_2 = "carta_1"
             lista_carta_2 =  dic_jogo[carta_escolida_2] 
             lista_carta_2[0] = "c"
 
@@ -332,5 +357,7 @@ while jogo:
                 if posicao_carta == "b":
                     v = "f" 
             if v == "t":
-                jogo == False '''
-                # Acabou o jogo 
+                jogo == False
+            if  event.type == pygame.QUIT:
+                jogo = False
+                # Acabou o jogo '''

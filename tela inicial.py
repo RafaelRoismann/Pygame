@@ -39,13 +39,13 @@ while game == True:
             mouseYcor = event.pos[1]
 
             if 330 < mouseXcor < 950 and 250 < mouseYcor < 350:
-                print('botão 1')
+                dic_jogo = 0
 
             elif 330 < mouseXcor < 950 and 400 < mouseYcor < 500:
-                print('botão 2')
+                dic_jogo = 0
 
             elif 330 < mouseXcor < 950 and 550 < mouseYcor < 650:
-                print('botão 3')
+                dic_jogo = 0
 
     # criando botões
 

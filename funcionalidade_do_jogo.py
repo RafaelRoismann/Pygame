@@ -1,3 +1,28 @@
+import pygame
+import random
+from pygame.locals import *
+
+# CONFIGURAÇÕES DO JOGO
+
+hight = 800
+width = 1280
+tela = pygame.display.set_mode((width, hight))
+pygame.display.set_caption('Jogo da Memória')
+
+game = True
+
+botao_starwars = pygame.image.load('imagens/botao/botao_starwars.png').convert_alpha()
+botao_harrypotter = pygame.image.load('imagens/botao/botao_potter.png').convert_alpha()
+botao_pokemon = pygame.image.load('imagens/botao/botao_pokemon.png').convert_alpha()
+imagem_tela_incial = pygame.image.load('imagens/bg inicio.jpg').convert()
+titulo = pygame.image.load('imagens/titulo.png').convert_alpha()
+
+imagem_tela_incial = pygame.transform.scale(imagem_tela_incial, (1280, 800))
+titulo = pygame.transform.scale(titulo, (960, 540))
+botao_pokemon = pygame.transform.scale(botao_pokemon, (1080, 400))
+botao_harrypotter = pygame.transform.scale(botao_harrypotter, (1080, 400))
+botao_starwars = pygame.transform.scale(botao_starwars, (1080, 400))
+
 # Criar um dicionário para cada grupo de personagens 
 
 # Definindo o diconário de pokemon 
@@ -124,9 +149,6 @@ harry_potter["carta_36"] = ["b", "foto_frente", "foto_trás", [0, 0]]
 
 # Estrutura do jogo 
 
-# Definir o dicionário que será utilizada a partir da resposta do jogador
-dic_jogo = harry_potter #Colocar o dicionário que foi escolido pelo usuario 
-
 # Sorteia uma posição para cada foto
 lista_posicoes = [[0, 0],[1, 1],[2, 2],[3, 3],[4, 4],[5, 5],[6, 6],[7, 7],[8, 8],[9, 9],[10, 10],
 [11, 11],[12, 12],[13, 13],[14, 14],[15, 15],[16, 16],[17, 17],[18, 18],[19, 19],[20, 20],[21, 21],
@@ -144,12 +166,6 @@ for carta in dic_jogo:
     i += 1
 
 #print(dic_jogo)
-
-
-# Nesse ponto o dicionário já está pronto para começar a ser utilizado no jogo 
-
-
-
 
 # DEFININDO AS CONDIÇÕES INICIAIS DO JOGO, Usar a termologia "b" caso a carta esteja virada para baixo e "c" caso a carta esteja virada para cima
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -181,8 +197,6 @@ for carta in dic_jogo:
 
 # Atualiza a imagem das cartas virada para cima
 pygame.display.update()
-
-
 
 # Começar o loop do jogo 
 jogo = True
@@ -274,5 +288,5 @@ while jogo:
         if posicao_carta == "b":
             v = "f" 
     if v == "t":
-        jogo == False 
+        state = quit
         # Acabou o jogo 
