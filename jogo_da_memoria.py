@@ -379,3 +379,6 @@ while jogo:
             if  event.type == pygame.QUIT:
                 jogo = False
                 # Acabou o jogo '''
+
+
+# Ultima atualização
