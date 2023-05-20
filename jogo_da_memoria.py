@@ -166,6 +166,10 @@ titulo = pygame.transform.scale(titulo, (960, 540))
 # Formatando a imagem inicial 
 imagem_tela_incial = pygame.transform.scale(imagem_tela_incial, (1280, 800))
 
+# Definindo coisas para o contador 
+fonte_contador = pygame.font.Font(None, 36)
+contador = 0
+
 
 #//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 # Estrutura do jogo 
@@ -444,7 +448,9 @@ while jogo:
                         png_carta = lista_carta[1]
                     posicao_x = lista_carta[3][0]
                     posicao_y = lista_carta[3][1]
-                    # Salvando a carta na tela 
+                    # Salvando a carta na tela
+                    #fundo = pygame.transform.scale(fundo, (1280, 800))
+                    #fundo.blit(fundo, (0, 0)) 
                     tela.blit(png_carta, (posicao_x, posicao_y))
 
                 # Atualiza a imagem das cartas virada para cima
@@ -501,6 +507,8 @@ while jogo:
                             tela.blit(png_carta, (posicao_x, posicao_y))
 
                         # Atualiza a imagem das cartas virada para cima
+                        #fundo = pygame.transform.scale(fundo, (1280, 800))
+                        #fundo.blit(fundo, (0, 0)) 
                         pygame.display.update()
                         carta2 = False  
 
@@ -528,6 +536,8 @@ while jogo:
                         tela.blit(png_carta, (posicao_x, posicao_y))
 
                     # Atualiza a imagem das cartas virada para cima
+                    #fundo = pygame.transform.scale(fundo, (1280, 800))
+                    #fundo.blit(fundo, (0, 0)) 
                     pygame.display.update()
                     #print(dic_jogo)
 
@@ -548,5 +558,12 @@ while jogo:
                 if  event.type == pygame.QUIT:
                     jogo = False
                     # Acabou o jogo 
-
+                contador += 1
+                texto_contador = fonte_contador.render("Contador: " + str(contador), True, (255, 255, 255))
+                fundo = pygame.transform.scale(fundo, (1280, 800))
+                preto = (0, 0, 0)
+                pygame.draw.rect(tela, preto, (10, 10, 136, 40))
+                #fundo.blit(fundo, (0, 0)) 
+                tela.blit(texto_contador, (10, 10))
+                pygame.display.update()
                 carta2 = False
