@@ -15,28 +15,29 @@ CARTA_HEIGHT = 150
 
 game = True
 
-botao_starwars = pygame.image.load('botao_starwars.png').convert_alpha()
+
 botao_harrypotter = pygame.image.load('botao_potter.png').convert_alpha()
 botao_pokemon = pygame.image.load('botao_pokemon.png').convert_alpha()
 imagem_tela_incial = pygame.image.load('imagens/bg inicio.jpg').convert()
-carta_capa = pygame.image.load('capa_harrypotter.png').convert()
-carta_1 = pygame.image.load('Captura de tela 2023-05-19 160445.png').convert()
-carta_2 = pygame.image.load('Captura de tela 2023-05-19 160456.png').convert()
-carta_3 = pygame.image.load('Captura de tela 2023-05-19 160518.png').convert()
+carta_capa = pygame.image.load('Verso da carta.png').convert()
 fundo_harrypotter = pygame.image.load("imagens/fundo_harrypotter.jpg").convert()
-fundo_starwars = pygame.image.load("imagens/fundo_starwars.png").convert()
-fundo_pokemon = pygame.image.load("imagens/fundo_pokemon.png").convert()
 titulo = pygame.image.load('imagens/titulo.png').convert_alpha()
+
+# Definindo cartas star wars
+botao_starwars = pygame.image.load('botao_starwars.png').convert_alpha()
+carta_s_1 = pygame.image.load('Boba Fett.png').convert() # Não é o boba feet 
+
+
 
 imagem_tela_incial = pygame.transform.scale(imagem_tela_incial, (1280, 800))
 titulo = pygame.transform.scale(titulo, (960, 540))
 botao_pokemon = pygame.transform.scale(botao_pokemon, (1080, 400))
 botao_harrypotter = pygame.transform.scale(botao_harrypotter, (1080, 400))
 botao_starwars = pygame.transform.scale(botao_starwars, (1080, 400))
-carta_1 = pygame.transform.scale(carta_1, (CARTA_WIDTH, CARTA_HEIGHT)) 
-carta_2 = pygame.transform.scale(carta_2, (CARTA_WIDTH, CARTA_HEIGHT))
-carta_3 = pygame.transform.scale(carta_3, (CARTA_WIDTH, CARTA_HEIGHT))
-carta_capa = pygame.transform.scale(carta_3, (CARTA_WIDTH, CARTA_HEIGHT))
+#carta_1 = pygame.transform.scale(carta_1, (CARTA_WIDTH, CARTA_HEIGHT)) 
+carta_s_1 = pygame.transform.scale(carta_s_1, (CARTA_WIDTH, CARTA_HEIGHT))
+#carta_3 = pygame.transform.scale(carta_3, (CARTA_WIDTH, CARTA_HEIGHT))
+carta_capa = pygame.transform.scale(carta_capa, (CARTA_WIDTH, CARTA_HEIGHT))
 
 
 jogo = True 
@@ -115,11 +116,11 @@ while jogo:
         pokemon["carta_33"] = ["b", "foto_frente", "foto_trás", [0, 0]]
         pokemon["carta_34"] = ["b", "foto_frente", "foto_trás", [0, 0]]
         pokemon["carta_35"] = ["b", "foto_frente", "foto_trás", [0, 0]]
-        pokemon["carta_36"] = ["b", "foto_frente", "foto_trás", [0, 0]]
+        pokemon["carta_36"] = ["b", "foto_frente", "foto_trás", [0, 0]]'''
 
 
         #Definindo o dicionário de Star Wars]
-        star_wars = {}
+        '''star_wars = {}
         star_wars["carta_1"]  = ["b", "foto_frente", "foto_trás", [0, 0]]
         star_wars["carta_2"]  = ["b", "foto_frente", "foto_trás", [0, 0]]
         star_wars["carta_3"]  = ["b", "foto_frente", "foto_trás", [0, 0]]
@@ -159,35 +160,34 @@ while jogo:
 
         # Definindo o dicionário de Harry Potter
         harry_potter = {}
-        harry_potter["carta_1"]  = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_2"]  = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_3"]  = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_4"]  = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_5"]  = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_6"]  = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_7"]  = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_8"]  = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_9"]  = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_10"] = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_11"] = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_12"] = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_13"] = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_14"] = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_15"] = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_16"] = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_17"] = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_18"] = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_19"] = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_20"] = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_21"] = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_22"] = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_23"] = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_24"] = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_25"] = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_26"] = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_27"] = ["b", carta_2, carta_capa, [0, 0]]
-        harry_potter["carta_28"] = ["b", carta_2, carta_capa, [0, 0]]
-
+        harry_potter["carta_1"]  = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_2"]  = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_3"]  = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_4"]  = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_5"]  = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_6"]  = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_7"]  = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_8"]  = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_9"]  = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_10"] = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_11"] = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_12"] = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_13"] = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_14"] = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_15"] = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_16"] = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_17"] = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_18"] = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_19"] = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_20"] = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_21"] = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_22"] = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_23"] = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_24"] = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_25"] = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_26"] = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_27"] = ["b", carta_s_1, carta_capa, [0, 0]]
+        harry_potter["carta_28"] = ["b", carta_s_1, carta_capa, [0, 0]]
 
 
         # Definir qual dicionário vai ser utilizado 
