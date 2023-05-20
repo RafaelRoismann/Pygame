@@ -19,31 +19,31 @@ tema = False
 
 # load nos planos de fundo 
 fundo_starwars = pygame.image.load('Tela de fundo do jogo.png').convert_alpha()
-fundo_harrypotter = pygame.image.load('Tela de fundo do jogo.png').convert_alpha()
+fundo_harrypotter = pygame.image.load('Plano de fundo Harry Potter.png').convert_alpha()
 fundo_pokemon = pygame.image.load('Tela de fundo do jogo.png').convert_alpha()
 
 # load das cartas de trás 
 carta_capa_s = pygame.image.load('Verso da carta.png').convert_alpha()
 carta_capa_p = pygame.image.load('Verso da carta.png').convert_alpha()
-carta_capa_h = pygame.image.load('Verso da carta.png').convert_alpha()
+carta_capa_h = pygame.image.load('2.png').convert_alpha()
 
 # load nas cartas 
 
 # Harry Potter
-carta_h_1 = pygame.image.load('C-3PO.png').convert_alpha()
-carta_h_2 = pygame.image.load('C-3PO.png').convert_alpha()
-carta_h_3 = pygame.image.load('C-3PO.png').convert_alpha()
-carta_h_4 = pygame.image.load('C-3PO.png').convert_alpha()
-carta_h_5 = pygame.image.load('C-3PO.png').convert_alpha()
-carta_h_6 = pygame.image.load('C-3PO.png').convert_alpha()
-carta_h_7 = pygame.image.load('C-3PO.png').convert_alpha()
-carta_h_8 = pygame.image.load('C-3PO.png').convert_alpha()
-carta_h_9 = pygame.image.load('C-3PO.png').convert_alpha()
-carta_h_10 = pygame.image.load('C-3PO.png').convert_alpha()
-carta_h_11 = pygame.image.load('C-3PO.png').convert_alpha()
-carta_h_12 = pygame.image.load('C-3PO.png').convert_alpha()
-carta_h_13 = pygame.image.load('C-3PO.png').convert_alpha()
-carta_h_14 = pygame.image.load('C-3PO.png').convert_alpha()
+carta_h_1 = pygame.image.load('Alvo Dumbledor.png').convert_alpha()
+carta_h_2 = pygame.image.load('belatriz.png').convert_alpha()
+carta_h_3 = pygame.image.load('Bicuço - hipogrifo.png').convert_alpha()
+carta_h_4 = pygame.image.load('Diabrete.png').convert_alpha()
+carta_h_5 = pygame.image.load('Dobby.png').convert_alpha()
+carta_h_6 = pygame.image.load('Draco Malfoy.png').convert_alpha()
+carta_h_7 = pygame.image.load('Gina Weasley.png').convert_alpha()
+carta_h_8 = pygame.image.load('Hagrid.png').convert_alpha()
+carta_h_9 = pygame.image.load('Harry Potter.png').convert_alpha()
+carta_h_10 = pygame.image.load('hermione.png').convert_alpha()
+carta_h_11 = pygame.image.load('Luna Lovegood.png').convert_alpha()
+carta_h_12 = pygame.image.load('ron wesley.png').convert_alpha()
+carta_h_13 = pygame.image.load('severo snape.png').convert_alpha()
+carta_h_14 = pygame.image.load('Voldemort.png').convert_alpha()
 
 # Star Wars
 carta_s_1 = pygame.image.load('Admiral Ackbar.png').convert_alpha()
@@ -168,7 +168,9 @@ imagem_tela_incial = pygame.transform.scale(imagem_tela_incial, (1280, 800))
 
 # Definindo coisas para o contador 
 fonte_contador = pygame.font.Font(None, 36)
+contador_pontos = 0
 contador = 0
+pontos = 0
 
 
 #//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -241,10 +243,10 @@ while jogo:
 
         #Definindo o dicionário de Star Wars]
         star_wars = {}
-        star_wars["carta_1"]  = ["b", carta_s_3, carta_capa_s, [0, 0]]
-        star_wars["carta_2"]  = ["b", carta_s_3, carta_capa_s, [0, 0]]
-        star_wars["carta_3"]  = ["b", carta_s_3, carta_capa_s, [0, 0]]
-        star_wars["carta_4"]  = ["b", carta_s_3, carta_capa_s, [0, 0]]
+        star_wars["carta_1"]  = ["b", carta_s_1, carta_capa_s, [0, 0]]
+        star_wars["carta_2"]  = ["b", carta_s_1, carta_capa_s, [0, 0]]
+        star_wars["carta_3"]  = ["b", carta_s_2, carta_capa_s, [0, 0]]
+        star_wars["carta_4"]  = ["b", carta_s_2, carta_capa_s, [0, 0]]
         star_wars["carta_5"]  = ["b", carta_s_3, carta_capa_s, [0, 0]]
         star_wars["carta_6"]  = ["b", carta_s_3, carta_capa_s, [0, 0]]
         star_wars["carta_7"]  = ["b", carta_s_4, carta_capa_s, [0, 0]]
@@ -324,10 +326,15 @@ while jogo:
 
         #print(dic_jogo)
         # Pega as posições das cartas e embaralha 
-        lista_posicoes = [[40, 20], [200, 20], [360, 20], [520, 20], [680, 20], [840, 20], [1000, 20],
-    [40, 190], [200, 190], [360, 190], [520, 190], [680, 190], [840, 190], [1000, 190],
-    [40, 360], [200, 360], [360, 360], [520, 360], [680, 360], [840, 360], [1000, 360],
-    [40, 530], [200, 530], [360, 530], [520, 530], [680, 530], [840, 530], [1000, 530]]
+        lista_posicoes = [[10, 90], [170, 90], [330, 90], [490, 90], [650, 90], [810, 90], [970, 90],
+               [10, 260], [170, 260], [330, 260], [490, 260], [650, 260], [810, 260], [970, 260],
+               [10, 430], [170, 430], [330, 430], [490, 430], [650, 430], [810, 430], [970, 430],
+               [10, 600], [170, 600], [330, 600], [490, 600], [650, 600], [810, 600], [970, 600]]
+
+
+
+
+
         
         random.shuffle(lista_posicoes)
         
@@ -373,7 +380,7 @@ while jogo:
         pygame.display.update()
 
         # Esperar 5 segundo 
-        time.sleep(1.5)
+        time.sleep(5)
 
         # Trocando todas as carta para ficarem viradas para baixo
         for carta in dic_jogo:
@@ -518,7 +525,7 @@ while jogo:
                         
                 if png_imagem_escolhida_1 != png_imagem_escolhida_2:
                     # Espero 3 segundos 
-                    time.sleep(1)
+                    time.sleep(2)
                     # Desviro as cartas 
                     lista_carta_1[0] = "b" # Ver se de fato está atualiuzando o dicionário
                     lista_carta_2[0] = "b" # Ver se de fato está atualiuzando o dicionário
@@ -540,6 +547,8 @@ while jogo:
                     #fundo.blit(fundo, (0, 0)) 
                     pygame.display.update()
                     #print(dic_jogo)
+                else:
+                    contador_pontos += 1 
 
 
 
@@ -558,12 +567,28 @@ while jogo:
                 if  event.type == pygame.QUIT:
                     jogo = False
                     # Acabou o jogo 
-                contador += 1
-                texto_contador = fonte_contador.render("Contador: " + str(contador), True, (255, 255, 255))
-                fundo = pygame.transform.scale(fundo, (1280, 800))
+
+
+
+                # Contador de jogadas e de pontuação
+
                 preto = (0, 0, 0)
-                pygame.draw.rect(tela, preto, (10, 10, 136, 40))
+                pygame.draw.rect(tela, preto, (10, 10, 500, 40))
+
+                # Contador de pontos
+                #if png_imagem_escolhida_1 == png_imagem_escolhida_2:
+                    #contador += 1   
+                fonte = pygame.font.SysFont(None, 36)  # Define a fonte e o tamanho do texto
+                texto_contador = fonte.render("Pontos: " + str(contador_pontos), True, (255, 255, 255))  # Renderiza o texto
+                tela.blit(texto_contador, (300, 10))  # Desenha o texto na posição desejada (10, 10 no exemplo)
+
+                # Contador de jogadas 
+                contador += 1
+                texto_contador = fonte_contador.render("Numero de jogadas: " + str(contador), True, (255, 255, 255))
+                fundo = pygame.transform.scale(fundo, (1280, 800))
                 #fundo.blit(fundo, (0, 0)) 
                 tela.blit(texto_contador, (10, 10))
+
+
                 pygame.display.update()
                 carta2 = False
