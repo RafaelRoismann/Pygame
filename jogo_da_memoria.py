@@ -65,20 +65,20 @@ carta_s_13 = pygame.image.load('Princess Leia.png').convert_alpha()
 carta_s_14 = pygame.image.load('Rey.png').convert_alpha()
 
 # Pokemon
-carta_p_1 = pygame.image.load('Chewbacca.png').convert_alpha()
-carta_p_2 = pygame.image.load('Chewbacca.png').convert_alpha()
-carta_p_3 = pygame.image.load('Chewbacca.png').convert_alpha()
-carta_p_4 = pygame.image.load('Chewbacca.png').convert_alpha()
-carta_p_5 = pygame.image.load('Chewbacca.png').convert_alpha()
-carta_p_6 = pygame.image.load('Chewbacca.png').convert_alpha()
-carta_p_7 = pygame.image.load('Chewbacca.png').convert_alpha()
-carta_p_8 = pygame.image.load('Chewbacca.png').convert_alpha()
-carta_p_9 = pygame.image.load('Chewbacca.png').convert_alpha()
-carta_p_10 = pygame.image.load('Chewbacca.png').convert_alpha()
-carta_p_11 = pygame.image.load('Chewbacca.png').convert_alpha()
-carta_p_12 = pygame.image.load('Chewbacca.png').convert_alpha()
-carta_p_13 = pygame.image.load('Chewbacca.png').convert_alpha()
-carta_p_14 = pygame.image.load('Chewbacca.png').convert_alpha()
+carta_p_1 = pygame.image.load('Roismann.png').convert_alpha()
+carta_p_2 = pygame.image.load('Roismann.png').convert_alpha()
+carta_p_3 = pygame.image.load('Roismann.png').convert_alpha()
+carta_p_4 = pygame.image.load('Roismann.png').convert_alpha()
+carta_p_5 = pygame.image.load('Roismann.png').convert_alpha()
+carta_p_6 = pygame.image.load('Roismann.png').convert_alpha()
+carta_p_7 = pygame.image.load('Roismann.png').convert_alpha()
+carta_p_8 = pygame.image.load('Roismann.png').convert_alpha()
+carta_p_9 = pygame.image.load('Roismann.png').convert_alpha()
+carta_p_10 = pygame.image.load('Roismann.png').convert_alpha()
+carta_p_11 = pygame.image.load('Roismann.png').convert_alpha()
+carta_p_12 = pygame.image.load('Roismann.png').convert_alpha()
+carta_p_13 = pygame.image.load('Roismann.png').convert_alpha()
+carta_p_14 = pygame.image.load('Roismann.png').convert_alpha()
 
 # load nos botões da página inicial 
 botao_starwars = pygame.image.load('botao_starwars.png').convert_alpha()
@@ -340,7 +340,7 @@ while jogo:
 
 
         
-        #random.shuffle(lista_posicoes)
+        random.shuffle(lista_posicoes)
         
         # Adicionar as posições para cada valor do dicionário
         i = 0
