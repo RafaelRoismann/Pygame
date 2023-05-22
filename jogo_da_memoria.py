@@ -21,11 +21,14 @@ tema = False
 fundo_starwars = pygame.image.load('Tela de fundo do jogo.png').convert_alpha()
 fundo_harrypotter = pygame.image.load('Plano de fundo Harry Potter.png').convert_alpha()
 fundo_pokemon = pygame.image.load('Tela de fundo do jogo.png').convert_alpha()
+fim_de_jogo = pygame.image.load('Fim de jogo2.png').convert_alpha()
+
 
 # load das cartas de trás 
 carta_capa_s = pygame.image.load('Verso da carta.png').convert_alpha()
 carta_capa_p = pygame.image.load('Verso da carta.png').convert_alpha()
-carta_capa_h = pygame.image.load('2.png').convert_alpha()
+carta_capa_h = pygame.image.load('Verso da carta .png').convert_alpha()
+
 
 # load nas cartas 
 
@@ -92,16 +95,17 @@ imagem_tela_incial = pygame.image.load('Tela de fundo do jogo.png').convert_alph
 # FORMATANDO AS IMAGENS 
 
 # Definido tamanho das cartas
-CARTA_WIDTH = 320 # 120 original
-CARTA_HEIGHT = 170 # 150 original
+CARTA_WIDTH = 320#320 # 120 original
+CARTA_HEIGHT = 170#170 # 150 original
 
 # Formatando planos de fundo 
 fundo_starwars =  pygame.transform.scale(fundo_starwars, (1280, 800))
 fundo_harrypotter = pygame.transform.scale(fundo_harrypotter, (1280, 800))
 fundo_pokemon = pygame.transform.scale(fundo_pokemon, (1280, 800))
+fim_de_jogo = pygame.transform.scale(fim_de_jogo, (1280, 800))
 
 # Formatando as cartas de trás 
-carta_capa_s = pygame.transform.scale(carta_capa_s, (CARTA_WIDTH, CARTA_HEIGHT))
+carta_capa_s = pygame.transform.scale(carta_capa_s, (CARTA_WIDTH , CARTA_HEIGHT))
 carta_capa_p = pygame.transform.scale(carta_capa_p, (CARTA_WIDTH, CARTA_HEIGHT))
 carta_capa_h = pygame.transform.scale(carta_capa_h, (CARTA_WIDTH, CARTA_HEIGHT))
 
@@ -237,7 +241,7 @@ while jogo:
         pokemon["carta_25"] = ["b", carta_p_13, carta_capa_p, [0, 0]]
         pokemon["carta_26"] = ["b", carta_p_13, carta_capa_p, [0, 0]]
         pokemon["carta_27"] = ["b", carta_p_14, carta_capa_p, [0, 0]]
-        pokemon["carta_28"] = ["b", carta_p_14,carta_capa_p, [0, 0]]
+        pokemon["carta_28"] = ["b", carta_p_14, carta_capa_p, [0, 0]]
 
 
 
@@ -336,7 +340,7 @@ while jogo:
 
 
         
-        random.shuffle(lista_posicoes)
+        #random.shuffle(lista_posicoes)
         
         # Adicionar as posições para cada valor do dicionário
         i = 0
@@ -350,9 +354,7 @@ while jogo:
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
         #tela.fill((0, 0, 0))
-
-        # Esperar 5 segundo 
-        #pygame.time.wait(5000)
+        fundo = pygame.transform.scale(fundo, (1280, 800))
         tela.blit(fundo, (0, 0))
         pygame.display.update()
 
@@ -375,12 +377,15 @@ while jogo:
             tela.blit(png_carta, (posicao_x, posicao_y))
 
         # Atualiza a imagem das cartas virada para cima
-        fundo = pygame.transform.scale(fundo, (1280, 800))
-        fundo.blit(fundo, (0, 0))
+        #fundo = pygame.transform.scale(fundo, (1280, 800))
+        #fundo.blit(fundo, (0, 0))
         pygame.display.update()
 
         # Esperar 5 segundo 
         time.sleep(5)
+
+        fundo = pygame.transform.scale(fundo, (1280, 800))
+        fundo.blit(fundo, (0, 0))
 
         # Trocando todas as carta para ficarem viradas para baixo
         for carta in dic_jogo:
@@ -401,8 +406,8 @@ while jogo:
             tela.blit(png_carta, (posicao_x, posicao_y))
 
         # Atualiza a imagem das cartas virada para cima
-        fundo = pygame.transform.scale(fundo, (1280, 800))
-        fundo.blit(fundo, (0, 0))
+        #fundo = pygame.transform.scale(fundo, (1280, 800))
+        #fundo.blit(fundo, (0, 0))
         pygame.display.update()
 
 
@@ -508,7 +513,7 @@ while jogo:
                                 png_carta = lista_carta [2]
                             if lado == "c":
                                 png_carta = lista_carta [1]
-                            posicao_x = lista_carta [3][0]
+                            posicao_x = lista_carta[3][0]
                             posicao_y = lista_carta [3][1]
                             # Salvando a carta na tela 
                             tela.blit(png_carta, (posicao_x, posicao_y))
@@ -525,7 +530,7 @@ while jogo:
                         
                 if png_imagem_escolhida_1 != png_imagem_escolhida_2:
                     # Espero 3 segundos 
-                    time.sleep(2)
+                    time.sleep(1)
                     # Desviro as cartas 
                     lista_carta_1[0] = "b" # Ver se de fato está atualiuzando o dicionário
                     lista_carta_2[0] = "b" # Ver se de fato está atualiuzando o dicionário
@@ -544,7 +549,7 @@ while jogo:
 
                     # Atualiza a imagem das cartas virada para cima
                     #fundo = pygame.transform.scale(fundo, (1280, 800))
-                    #fundo.blit(fundo, (0, 0)) 
+                    fundo.blit(fundo, (0, 0)) 
                     pygame.display.update()
                     #print(dic_jogo)
                 else:
@@ -561,7 +566,11 @@ while jogo:
                         v = "f" 
                 if v == "t":
                     print("Todas as cartas estão para cima ")
-                    jogo == False
+                    jogo = False
+                    tela.blit(fim_de_jogo, (0, 0)) 
+                    pygame.display.update()
+                    time.sleep(2)
+                    pygame.quit()
                 else:
                     print("Ainda tem carta para baixo")
                 if  event.type == pygame.QUIT:
