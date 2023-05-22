@@ -20,13 +20,13 @@ tema = False
 # load nos planos de fundo 
 fundo_starwars = pygame.image.load('Tela de fundo do jogo.png').convert_alpha()
 fundo_harrypotter = pygame.image.load('Plano de fundo Harry Potter.png').convert_alpha()
-fundo_pokemon = pygame.image.load('Tela de fundo do jogo.png').convert_alpha()
+fundo_pokemon = pygame.image.load('Fundo de jogo sala.png').convert_alpha()
 fim_de_jogo = pygame.image.load('Fim de jogo2.png').convert_alpha()
 
 
 # load das cartas de trás 
 carta_capa_s = pygame.image.load('Verso da carta.png').convert_alpha()
-carta_capa_p = pygame.image.load('Verso da carta.png').convert_alpha()
+carta_capa_p = pygame.image.load('Verso da carta engenharia.png').convert_alpha()
 carta_capa_h = pygame.image.load('Verso da carta .png').convert_alpha()
 
 
@@ -65,25 +65,25 @@ carta_s_13 = pygame.image.load('Princess Leia.png').convert_alpha()
 carta_s_14 = pygame.image.load('Rey.png').convert_alpha()
 
 # Pokemon
-carta_p_1 = pygame.image.load('Roismann.png').convert_alpha()
-carta_p_2 = pygame.image.load('Roismann.png').convert_alpha()
-carta_p_3 = pygame.image.load('Roismann.png').convert_alpha()
-carta_p_4 = pygame.image.load('Roismann.png').convert_alpha()
-carta_p_5 = pygame.image.load('Roismann.png').convert_alpha()
-carta_p_6 = pygame.image.load('Roismann.png').convert_alpha()
-carta_p_7 = pygame.image.load('Roismann.png').convert_alpha()
-carta_p_8 = pygame.image.load('Roismann.png').convert_alpha()
-carta_p_9 = pygame.image.load('Roismann.png').convert_alpha()
-carta_p_10 = pygame.image.load('Roismann.png').convert_alpha()
-carta_p_11 = pygame.image.load('Roismann.png').convert_alpha()
+carta_p_1 = pygame.image.load('Aoboque.png').convert_alpha()
+carta_p_2 = pygame.image.load('Barbara.png').convert_alpha()
+carta_p_3 = pygame.image.load('BOB.png').convert_alpha()
+carta_p_4 = pygame.image.load('Braga.png').convert_alpha()
+carta_p_5 = pygame.image.load('Cabra.png').convert_alpha()
+carta_p_6 = pygame.image.load('Caio.png').convert_alpha()
+carta_p_7 = pygame.image.load('Dani.png').convert_alpha()
+carta_p_8 = pygame.image.load('Greco.png').convert_alpha()
+carta_p_9 = pygame.image.load('Hector.png').convert_alpha()
+carta_p_10 = pygame.image.load('Jun.png').convert_alpha()
+carta_p_11 = pygame.image.load('PH.png').convert_alpha()
 carta_p_12 = pygame.image.load('Roismann.png').convert_alpha()
-carta_p_13 = pygame.image.load('Roismann.png').convert_alpha()
-carta_p_14 = pygame.image.load('Roismann.png').convert_alpha()
+carta_p_13 = pygame.image.load('Vitor.png').convert_alpha()
+carta_p_14 = pygame.image.load('meninas.png').convert_alpha()
 
 # load nos botões da página inicial 
 botao_starwars = pygame.image.load('botao_starwars.png').convert_alpha()
 botao_harrypotter = pygame.image.load('botao_potter.png').convert_alpha()
-botao_pokemon = pygame.image.load('botao_pokemon.png').convert_alpha()
+botao_pokemon = pygame.image.load('botao engenharia.png').convert_alpha()
 
 # load no título
 titulo = pygame.image.load('imagens/titulo.png').convert_alpha()
