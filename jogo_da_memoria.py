@@ -3,6 +3,7 @@ import random
 import pygame
 import time
 pygame.init()
+pygame.mixer.init()
 
 # criando a tela do jogo
 hight = 800
@@ -15,6 +16,11 @@ Jogadas = True
 tema = False
 
 #////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# Load nas músicas
+music_starwars = pygame.mixer.Sound('Star Wars Main Theme.mp3')
+music_harrypotter = pygame.mixer.Sound('Harry Potter Theme Song.mp3')
+music_eng = pygame.mixer.Sound('Beautiful-Girls.wav')
+
 # Load nas imagens 
 
 # load nos planos de fundo 
@@ -176,6 +182,15 @@ contador_pontos = 0
 contador = 0
 pontos = 0
 
+# Classe que cria as cartas
+
+class Cartas(pygame.sprite.Sprite):
+    def __init__(self, img, posicao):
+        super().__init__()
+        self.image = img
+        self.rect = self.image.get_rect()
+        self.rect.x = posicao[0]
+        self.rect.y = posicao[1]
 
 #//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 # Estrutura do jogo 
@@ -188,8 +203,8 @@ while jogo:
         
     for event in pygame.event.get():
             
-        if event.type == pygame.QUIT:
-            game = False
+        if pygame.QUIT == event.type:
+            pygame.quit()
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouseXcor = event.pos[0]
             mouseYcor = event.pos[1]
@@ -313,16 +328,19 @@ while jogo:
         if tema_escolido == "star_wars":
             dic_jogo = star_wars
             fundo = fundo_starwars
+            music_starwars.play(loops=-1)
             #carta_capa = carta_capa_s
             
         if tema_escolido == "harry_potter":
             dic_jogo = harry_potter
             fundo = fundo_harrypotter
+            music_harrypotter.play(loops=-1)
             #carta_capa = carta_capa_h
 
         if tema_escolido == "pokemon":
             dic_jogo = pokemon
             fundo = fundo_pokemon
+            music_eng.play(loops=-1)
             #carta_capa = carta_capa_p
 
         fundo = pygame.transform.scale(fundo, (1280, 800))
@@ -335,12 +353,7 @@ while jogo:
                [10, 430], [170, 430], [330, 430], [490, 430], [650, 430], [810, 430], [970, 430],
                [10, 600], [170, 600], [330, 600], [490, 600], [650, 600], [810, 600], [970, 600]]
 
-
-
-
-
-        
-        random.shuffle(lista_posicoes)
+        #random.shuffle(lista_posicoes)
         
         # Adicionar as posições para cada valor do dicionário
         i = 0
@@ -374,7 +387,10 @@ while jogo:
             posicao_x = lista_carta[3][0]
             posicao_y = lista_carta[3][1]
             # Salvando a carta na tela 
-            tela.blit(png_carta, (posicao_x, posicao_y))
+            # tela.blit(png_carta, (posicao_x, posicao_y))
+            carta = Cartas(png_carta, (posicao_x, posicao_y))
+            tela.blit(carta.image, carta.rect)
+
 
         # Atualiza a imagem das cartas virada para cima
         #fundo = pygame.transform.scale(fundo, (1280, 800))
@@ -403,7 +419,8 @@ while jogo:
             posicao_x = lista_carta[3][0]
             posicao_y = lista_carta[3][1]
             # Salvando a carta na tela 
-            tela.blit(png_carta, (posicao_x, posicao_y))
+            carta = Cartas(png_carta, (posicao_x, posicao_y))
+            tela.blit(carta.image, carta.rect)
 
         # Atualiza a imagem das cartas virada para cima
         #fundo = pygame.transform.scale(fundo, (1280, 800))
@@ -421,6 +438,8 @@ while jogo:
             # Criar um código que detecta a carta e slava em uma variavel
             clik = False
             for event in pygame.event.get():
+                if pygame.QUIT == event.type:
+                    pygame.quit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     mouseXcor, mouseYcor = event.pos
                     
@@ -462,7 +481,9 @@ while jogo:
                     # Salvando a carta na tela
                     #fundo = pygame.transform.scale(fundo, (1280, 800))
                     #fundo.blit(fundo, (0, 0)) 
-                    tela.blit(png_carta, (posicao_x, posicao_y))
+                    #tela.blit(png_carta, (posicao_x, posicao_y))
+                    carta = Cartas(png_carta, (posicao_x, posicao_y))
+                    tela.blit(carta.image, carta.rect)
 
                 # Atualiza a imagem das cartas virada para cima
                 pygame.display.update()
@@ -544,7 +565,8 @@ while jogo:
                         posicao_x = lista_carta[3][0]
                         posicao_y = lista_carta[3][1]
                         # Salvando a carta na tela 
-                        tela.blit(png_carta, (posicao_x, posicao_y))
+                        carta = Cartas(png_carta, (posicao_x, posicao_y))
+                        tela.blit(carta.image, carta.rect)
 
                     # Atualiza a imagem das cartas virada para cima
                     #fundo = pygame.transform.scale(fundo, (1280, 800))
@@ -553,9 +575,7 @@ while jogo:
                     #print(dic_jogo)
                 else:
                     contador_pontos += 1 
-
-
-
+            
                 # Verifico que todas estão viradas para cima 
                 v = "t"
                 for carta in dic_jogo:
@@ -576,7 +596,10 @@ while jogo:
                     jogo = False
                     # Acabou o jogo 
 
-
+                # Adiciona em um arquivo de txt as pontuações
+                if jogo == False:
+                    with open('pontuações', 'a') as arquivo:
+                        arquivo.write(str(contador+1) + '\n')
 
                 # Contador de jogadas e de pontuação
 
