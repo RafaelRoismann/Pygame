@@ -410,7 +410,6 @@ while jogo:
         #fundo.blit(fundo, (0, 0))
         pygame.display.update()
 
-
         # Começar o loop do jogo 
         jogando= True
         while jogando:
